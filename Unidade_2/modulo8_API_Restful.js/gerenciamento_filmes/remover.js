@@ -1,12 +1,16 @@
+const { filmes } = require('./data');
 
-    async function deletarFilme(id, filmes) {
-        try {
-            const filmeDeletado = await filmes.findByIdAndDelete(id);
-            return filmeDeletado;
-        } catch (erro){
-            console.error('Erro ao deletar filme', erro)
-            throw erro;
-        }
+const deletarFilme = (req, res) => {
+    const { id } = req.params;
+    const index = filmes.findIndex(f => f.id == id);
+
+    if (index === -1) {
+        return res.status(404).send({ mensagem: 'Filme não encontrado' });
     }
 
-    module.exports = deletarFilme
+    const filmeRemovido = filmes.splice(index, 1)[0];
+
+    res.status(200).send({ mensagem: 'Filme removido com sucesso!', filme: filmeRemovido });
+};
+
+module.exports = deletarFilme;

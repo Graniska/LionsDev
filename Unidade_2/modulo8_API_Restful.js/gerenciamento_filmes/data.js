@@ -1,8 +1,12 @@
 
-    let filmes = [
-        {id:1, titulo: "Filme1", genero: "acao", duracao: "2 horas", diretor: "Fulano de tal"},
-        {id:2, titulo: "Filme2", genero: "terror", duracao: "1,45 horas", diretor: "Ciclano "}
-    
-    ]
+let filmes = [
+    {
+        id: 1,  // Adicionando um campo `id`
+        titulo: "Filme1",
+        diretor: "Diretor1",
+        ano: 2005,
+        genero: "Romance"
+    }
+];
 
-    module.exports = {filmes}
+module.exports = { filmes };
